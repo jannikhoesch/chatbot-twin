@@ -19,3 +19,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.user-message {
+  text-align: right;
+  background: #e5e7eb;
+}
+
+.ai-message {
+  text-align: left;
+  background: #e5e7eb;
+}
