@@ -28,7 +28,8 @@ export default function Page() {
     return (
         <div className="bg-black min-h-screen flex items-center justify-center p-4">
             <div className="w-full max-w-3xl bg-white shadow-2xl rounded-lg p-6 flex flex-col h-full">
-                <img src="/jannik.png" alt="Jannik" className="mb-4 mx-auto w-24 h-24 rounded-full" />                <h1 className="text-3xl font-extrabold mb-4 text-center text-black">Ask Jannik</h1>
+                <img src="/jannik.png" alt="Jannik" className="mb-4 mx-auto w-24 h-24 rounded-full" />
+                <h1 className="text-3xl font-extrabold mb-4 text-center text-black">Ask Jannik</h1>
 
                 <div className="flex-1 border p-4 overflow-y-auto bg-gray-100 rounded-lg shadow-inner">
                     {messages.map((message, index) => (
