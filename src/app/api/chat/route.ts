@@ -1,14 +1,19 @@
-import { streamText, UIMessage } from 'ai';
+import { streamText, UIMessage, TextUIPart } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-const behaviorContent = readFileSync(join(process.cwd(), 'src/app/api/chat/behavior.txt'), 'utf-8');
-const BEHAVIOR = { role: 'system', content: behaviorContent };
+const behaviorContent: string = readFileSync(join(process.cwd(), 'src/app/api/chat/behavior.txt'), 'utf-8').trim();
+const BEHAVIOR: UIMessage = {
+    id: '0',
+    role: 'system',
+    content: behaviorContent,
+    parts: [{ type: 'text', content: behaviorContent } as TextUIPart]
+};
 
 export async function POST(req: Request) {
     const { messages }: { messages: UIMessage[] } = await req.json();
-    const updatedMessages = [BEHAVIOR, ...messages];
+    const updatedMessages: UIMessage[] = [BEHAVIOR, ...messages];
 
     const result = streamText({
         model: openai('gpt-4o-mini'),
