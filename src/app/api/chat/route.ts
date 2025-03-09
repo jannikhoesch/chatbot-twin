@@ -1,4 +1,4 @@
-import { streamText, UIMessage, TextUIPart } from 'ai';
+import { streamText, UIMessage } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -8,7 +8,7 @@ const BEHAVIOR: UIMessage = {
     id: '0',
     role: 'system',
     content: behaviorContent,
-    parts: [{ type: 'text', content: behaviorContent } as TextUIPart]
+    parts: [{ type: 'text', text: behaviorContent }]
 };
 
 export async function POST(req: Request) {
